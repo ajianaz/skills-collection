@@ -48,7 +48,7 @@ Remember: Claude is capable of extraordinary creative work. Don't hold back, sho
 
 When working on Svelte projects, leverage these component libraries:
 
-**Invoke `shadcn-management` skill when:**
+**Invoke `shadcn-svelte-management` skill when:**
 - Need to discover available Svelte components
 - Building features requiring multiple components (forms, dialogs, data tables)
 - Need component installation commands

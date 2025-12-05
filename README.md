@@ -27,7 +27,7 @@ cp -r skills/mobile-devops ~/.factory/skills/
 - [`svelte-design`](./skills/svelte-design) - Create distinctive, production-grade Svelte/SvelteKit interfaces
 - [`svelte-ui-animator`](./skills/svelte-ui-animator) - Add purposeful animations with Svelte transitions and actions
 - [`svelte-ui-integration`](./skills/svelte-ui-integration) - Build SvelteKit workflows with form actions and load functions
-- [`shadcn-management`](./skills/shadcn-management) - Manage Svelte component libraries (shadcn-svelte, Skeleton UI, Melt UI)
+- [`shadcn-svelte-management`](./skills/shadcn-svelte-management) - Manage Svelte component libraries (shadcn-svelte, Skeleton UI, Melt UI)
 - [`sveltekit-data-optimizer`](./skills/sveltekit-data-optimizer) - Optimize SvelteKit performance with load functions and progressive enhancement
 
 ### **Building Mobile Apps?**
@@ -217,7 +217,7 @@ User: "Build a modern landing page"
 
 → svelte-design analyzes brand and creates aesthetic direction for Svelte
 → svelte-ui-animator adds Svelte transitions and scroll-reveal animations
-→ shadcn-management provides Svelte component library integration
+→ shadcn-svelte-management provides Svelte component library integration
 → sveltekit-data-optimizer ensures instant server-side rendering
 → Result: Production-ready, animated SvelteKit landing page in minutes
 ```

@@ -33,7 +33,12 @@ Implement or extend user-facing workflows in SvelteKit applications, leveraging 
 
 - **Framework**: SvelteKit with TypeScript.
 - **Routing**: use SvelteKit's file-based routing with `+layout.svelte`, `+page.svelte`, and `+page.server.ts`.
-- **Styling**: use the in-house design system components (Buttons, Inputs, Modals, Toasts, etc.).
+- **Styling**: Use shadcn-svelte, Skeleton UI, or Melt UI components (via `shadcn-svelte-management` skill) or the in-house design system components.
+
+When using UI components, invoke the `shadcn-svelte-management` skill to:
+- Discover available Svelte components
+- Get component installation commands
+- Choose appropriate component library (shadcn-svelte, Skeleton UI, Melt UI)
 - **State management**: prefer Svelte stores, reactive statements, and SvelteKit's form actions.
 - **Data fetching**: use SvelteKit load functions for server-side data and progressive enhancement.
 

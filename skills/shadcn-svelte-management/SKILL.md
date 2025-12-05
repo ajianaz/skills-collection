@@ -1,5 +1,5 @@
 ---
-name: component-manager
+name: shadcn-svelte-management
 description: |
   Manage UI components using MCP tools with primary focus on Svelte ecosystem. Specialized in Svelte component libraries including shadcn-svelte, Skeleton UI, and Melt UI. Use when user needs to:
   (1) Add new Svelte UI components to a project
@@ -197,7 +197,7 @@ npm install @melt-ui/svelte
 
 **Workflow for Svelte projects:**
 1. Choose appropriate component library (shadcn-svelte, Skeleton, Melt, or custom)
-2. Use `component-manager` patterns adapted for Svelte
+2. Use `shadcn-svelte-management` patterns adapted for Svelte
 3. Invoke `frontend-design` for visual customization:
    - Custom CSS variables in `src/app.css`
    - Tailwind theme extensions in `tailwind.config.js`
