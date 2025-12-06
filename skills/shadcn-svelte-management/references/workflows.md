@@ -29,14 +29,14 @@ For building complete features requiring multiple shadcn components.
 4. **Output** component hierarchy:
    ```
    ## Feature: [Name]
-   
+
    ## Components Required:
    - form (validation and submission)
    - input (email and password fields)
    - button (submit action)
    - card (form container)
    - alert (error display)
-   
+
    ## Component Hierarchy:
    Card
    └── Form
@@ -53,14 +53,14 @@ For building complete features requiring multiple shadcn components.
 **Steps:**
 
 1. For each component:
-   
+
    a. Get implementation details:
    ```
    shadcn___view_items_in_registries(items: ["@shadcn/component"])
    ```
    - Note file dependencies
    - Note key props
-   
+
    b. Get examples:
    ```
    shadcn___get_item_examples_from_registries(registries, query: "component-demo")
@@ -70,7 +70,7 @@ For building complete features requiring multiple shadcn components.
 
 2. Get installation command for ALL components at once:
    ```
-   shadcn___get_add_command_for_items(items: ["@shadcn/form", "@shadcn/input", ...])
+   shadcn___get_add_command_for_items(items: ["@shadcn-svelte/form", "@shadcn-svelte/input", ...])
    ```
 
 3. **Output** research summary with:
@@ -99,17 +99,17 @@ For building complete features requiring multiple shadcn components.
    ```
    - Verify best practices followed
 
-3. **Output** complete implementation:
-   ```tsx
-   // All necessary imports
-   import { Form, FormControl, FormField } from "@/components/ui/form"
-   import { Input } from "@/components/ui/input"
-   import { Button } from "@/components/ui/button"
-   
-   export function FeatureName() {
-     // Full implementation
-   }
-   ```
+3. **OUTPUT** complete implementation:
+```svelte
+<!-- All necessary imports -->
+<script lang="ts">
+  import { Form, FormControl, FormField } from "$lib/components/ui/form"
+  import { Input } from "$lib/components/ui/input"
+  import { Button } from "$lib/components/ui/button"
+
+  // Full implementation
+</script>
+```
 
 4. Include setup instructions:
    - Installation commands needed
@@ -126,74 +126,70 @@ Hierarchy: Card > Form > (Label+Input)*2 + Button + Alert
 
 **Phase 2 Output:**
 ```bash
-npx shadcn@latest add card form input button label alert
+npx shadcn-svelte@latest add card form input button label alert
 ```
 
 **Phase 3 Output:**
-```tsx
-"use client"
+```svelte
+<script lang="ts">
+  import { enhance } from '$app/forms';
+  import { zodResolver } from "@hookform/resolvers/zod"
+  import { useForm } from "react-hook-form"
+  import * as z from "zod"
+  import { Button } from "$lib/components/ui/button"
+  import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card"
+  import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "$lib/components/ui/form"
+  import { Input } from "$lib/components/ui/input"
 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-
-const formSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8),
-})
-
-export function LoginForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const formSchema = z.object({
+    email: z.string().email(),
+    password: z.string().min(8),
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-  }
+  export let form: HTMLFormElement;
 
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Login</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input placeholder="email@example.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type="password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="w-full">Login</Button>
-          </form>
-        </Form>
-      </CardContent>
-    </Card>
-  )
-}
+  // SvelteKit form action with progressive enhancement
+  const handleSubmit = enhance(() => {
+    return async ({ result, data }) => {
+      if (result.type === 'success') {
+        // Handle successful login
+        console.log('Login successful:', data);
+      } else {
+        // Handle errors
+        console.error('Login failed:', result.error);
+      }
+    };
+  });
+</script>
+
+<Card>
+  <CardHeader>
+    <CardTitle>Login</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <form method="POST" action="/login" use:handleSubmit class="space-y-4">
+      <div class="space-y-2">
+        <label for="email">Email</label>
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="email@example.com"
+          required
+        />
+      </div>
+      <div class="space-y-2">
+        <label for="password">Password</label>
+        <Input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter password"
+          required
+        />
+      </div>
+      <Button type="submit" class="w-full">Login</Button>
+    </form>
+  </CardContent>
+</Card>
 ```

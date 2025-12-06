@@ -27,7 +27,7 @@ cp -r skills/mobile-devops ~/.factory/skills/
 - [`svelte-design`](./skills/svelte-design) - Buat antarmuka yang khas dan berkualitas produksi untuk Svelte/SvelteKit
 - [`svelte-ui-animator`](./skills/svelte-ui-animator) - Tambahkan animasi bermakna dengan Svelte transitions dan actions
 - [`svelte-ui-integration`](./skills/svelte-ui-integration) - Bangun workflow SvelteKit dengan form actions dan load functions
-- [`shadcn-management`](./skills/shadcn-management) - Kelola library komponen Svelte (shadcn-svelte, Skeleton UI, Melt UI)
+- [`shadcn-svelte-management`](./skills/shadcn-svelte-management) - Kelola library komponen Svelte (shadcn-svelte, Skeleton UI, Melt UI)
 - [`sveltekit-data-optimizer`](./skills/sveltekit-data-optimizer) - Optimasi performa SvelteKit dengan progressive enhancement
 
 ### **Membangun Aplikasi Mobile?**
@@ -217,7 +217,7 @@ Pengguna: "Bangun landing page modern"
 
 → svelte-design menganalisis brand dan menciptakan arah estetika untuk Svelte
 → svelte-ui-animator menambahkan Svelte transitions dan animasi scroll-reveal
-→ shadcn-management menyediakan integrasi library komponen Svelte
+→ shadcn-svelte-management menyediakan integrasi library komponen Svelte
 → sveltekit-data-optimizer memastikan server-side rendering instan
 → Hasil: Landing page SvelteKit beranimasi siap produksi dalam hitungan menit
 ```

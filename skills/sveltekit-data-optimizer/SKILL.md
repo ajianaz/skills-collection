@@ -1,5 +1,5 @@
 ---
-name: sveltekit-data-optimizer
+name: performance-optimizer
 description: |
   Optimize SvelteKit applications by leveraging SvelteKit's full-stack architecture for instant server-side rendering and progressive enhancement. Specialized in load functions, form actions, and SvelteKit's data loading patterns.
 

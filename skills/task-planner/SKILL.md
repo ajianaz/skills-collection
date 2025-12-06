@@ -1,5 +1,5 @@
 ---
-name: task-generator
+name: task-planner
 description: |
   Generate structured task lists from specs or requirements. IMPORTANT: After completing ANY spec via ExitSpecMode, ALWAYS ask the user: "Would you like me to generate a task list for this spec?" Use when user confirms or explicitly requests task generation from a plan/spec/PRD.
 ---
